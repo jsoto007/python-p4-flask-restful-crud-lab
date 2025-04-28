@@ -59,6 +59,20 @@ class PlantByID(Resource):
         db.session.commit()
 
         return make_response(plant.to_dict(), 201)
+    
+    def delete(self, id):
+        plant = Plant.query.filter_by(id=id).first()
+
+        db.session.delete(plant)
+        db.session.commit()
+
+        response = make_response(
+            {"Deleted": "The resource was deleted."},
+            204
+        )
+
+        return response
+
 
 
 
