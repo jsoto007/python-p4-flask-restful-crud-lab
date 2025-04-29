@@ -37,7 +37,6 @@ class Plants(Resource):
 
         return make_response(new_plant.to_dict(), 201)
 
-
 api.add_resource(Plants, '/plants')
 
 
@@ -72,9 +71,6 @@ class PlantByID(Resource):
         )
 
         return response
-
-
-
 
 
 api.add_resource(PlantByID, '/plants/<int:id>')
